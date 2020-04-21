@@ -3,8 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
 
+	public function __construct(){
+		parent::__construct();
+	}
+
 	public function index(){
-		$x['title']		= "Dashboard - Admin Elearning";
+		$x['title']		= "Dashboard - Admin ".get_webinfo()->nama_website;
 		$this->load->view('admin/dashboard/index', $x);
 	}
 
