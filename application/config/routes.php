@@ -54,4 +54,6 @@ $route['404_override'] = 'handling/e404';
 $route['translate_uri_dashes'] = TRUE;
 
 // ADMIN
-$route['admin']		= 'admin/dashboard';
+$route['admin']				= 'admin/dashboard';
+$route['admin/auth']		= 'admin/login/auth';
+$route['admin/logout']		= 'admin/login/logout';

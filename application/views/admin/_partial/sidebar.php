@@ -1,10 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
    <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-         <a href="http://localhost/elearning/dist/index"><?= get_webinfo()->nama_website ?></a>
+         <a href="<?= site_url() ?>"><?= get_webinfo()->nama_website ?></a>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
-         <a href="http://localhost/elearning/dist/index">St</a>
+         <a href="<?= site_url() ?>"><?= initial(get_webinfo()->nama_website) ?></a>
       </div>
       <ul class="sidebar-menu">
          <li class="<?= empty($this->uri->segment(2)) ? 'active':'' ?>"><a class="nav-link" href="<?= site_url('admin') ?>"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>

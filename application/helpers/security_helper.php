@@ -5,3 +5,15 @@ if ( ! function_exists('x')){
 		return htmlentities($s, ENT_QUOTES, 'UTF-8');
 	}
 }
+
+if ( ! function_exists('initial')){
+	function initial($s){
+		$words = explode(" ", $s);
+		$acronym = "";
+
+		foreach ($words as $w) {
+			$acronym .= $w[0];
+		}
+		return $acronym;
+	}
+}

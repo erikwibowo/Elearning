@@ -33,8 +33,14 @@
           message: '<?= $this->session->flashdata('notif'); ?>',
           position: 'topRight'
         });
+    <?php }elseif ($this->session->flashdata('type') == "i"){ ?>
+        iziToast.info({
+          title: 'Informasi',
+          message: '<?= $this->session->flashdata('notif'); ?>',
+          position: 'topRight'
+        });
     <?php }else{ ?>
-        iziToast.error({
+      iziToast.error({
           title: 'Gagal',
           message: '<?= $this->session->flashdata('notif'); ?>',
           position: 'topRight'

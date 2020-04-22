@@ -7,7 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>404 &mdash; Stisla</title>
+  <title>404 Tidak ditemukan</title>
+  <link rel="icon" type="image/png" href="<?= base_url() ?>files/info/favicon.png" />
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/admin/modules/bootstrap/css/bootstrap.min.css">

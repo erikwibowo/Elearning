@@ -17,9 +17,18 @@ class Minfo extends CI_Model {
 		return $this->db->update('info', $data);
 	}
 
+	public function update_not($data, $id){
+		$this->db->where('id_info <>', $id);
+		return $this->db->update('info', $data);
+	}
+
 	public function delete($id){
 		$this->db->where('id_info', $id);
 		return $this->db->delete('info');
+	}
+
+	public function insert($data){
+		return $this->db->insert('info', $data);
 	}
 
 }

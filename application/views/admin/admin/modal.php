@@ -106,14 +106,10 @@
 			<div class="modal-body">
 				<form method="POST" action="<?= site_url('admin/admin/update') ?>" enctype="multipart/form-data">
 					<div class="form-group row">
-						<div class="col-sm-12">
-                            <img src="" id="foto">
-						</div>
-					</div>
-					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Foto Admin</label>
 						<div class="col-sm-10">
-							<input type="file" name="foto" class="form-control" placeholder="Foto Admin">
+                            <img src="" id="foto"><br>
+                            <input type="file" name="foto" class="form-control" placeholder="Foto Admin">
 						</div>
 					</div>
 					<div class="form-group row">
