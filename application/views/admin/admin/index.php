@@ -11,7 +11,7 @@
          <div class="col-12">
             <div class="card">
                <div class="card-header">
-                  <a href="" class="btn btn-success" data-toggle="tooltip" title="Tambah data"><i class="fa fa-plus"></i> Tambah</a>
+                  <a href="" class="btn btn-success"  data-toggle="modal" data-target="#exampleModal" title="Tambah data"><i class="fa fa-plus"></i> Tambah</a>
                </div>
                <div class="card-body">
                   <div class="table-responsive">
@@ -35,7 +35,7 @@
                            <tr>
                               <td><?= $no++ ?></td>
                               <td>
-                                 <img alt="image" src="<?= base_url() ?>assets/admin/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="<?= x($x->nama_admin) ?>"> &nbsp;
+                                 <img alt="image" src="<?= base_url('files/admin/thumb/'.$x->thumb_admin) ?>" class="rounded-circle" width="35" data-toggle="tooltip" title="<?= x($x->nama_admin) ?>"> &nbsp;
                                  <?= x($x->nama_admin) ?></td>
                               <td><?= x($x->alamat_admin) ?></td>
                               <td>
@@ -53,7 +53,7 @@
                               <td class="text-center"><?= x($x->login == null ? "Belum pernah login":$x->login) ?></td>
                               <td>
                                  <div class="btn-group">
-                                    <a data-toggle="tooltip" title="Lihat/Edit Data" href="#" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
+                                    <a style="color: white" data-toggle="tooltip" title="Lihat/Edit Data" class="btn btn-sm btn-info btn-edit" data-id="<?= $x->id_admin ?>"><i class="fa fa-eye"></i></a>
 
                                     <?php if ($x->status == 0){ ?>
                                        <a data-toggle="tooltip" title="Aktifkan Data" href="#" class="btn btn-sm btn-warning" data-confirm="Apakah anda yakin akan mengaktifkan <b><?= x($x->nama_admin) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/admin/aktifkan/'.$x->id_admin) ?>'"><i class="fa fa-unlock"></i></a>
@@ -76,4 +76,5 @@
    </div>
 </section>
 </div>
+<?php $this->load->view('admin/admin/modal') ?>
 <?php $this->load->view('admin/_partial/bottom'); ?>

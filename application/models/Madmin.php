@@ -12,6 +12,11 @@ class Madmin extends CI_Model {
 		return $this->db->get('admin');
 	}
 
+	public function insert($data){
+		return $this->db->insert('admin', $data);
+		
+	}
+
 	public function update($data, $id){
 		$this->db->where('id_admin', $id);
 		return $this->db->update('admin', $data);
