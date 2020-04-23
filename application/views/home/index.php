@@ -1,235 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="<?= get_webinfo()->nama_website." - ".get_webinfo()->deskripsi ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Title -->
-    <title><?= get_webinfo()->nama_website." - ".get_webinfo()->deskripsi ?></title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="<?= base_url() ?>assets/uza/./img/core-img/favicon.ico">
-
-    <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/uza/style.css">
-
-</head>
-
-<body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="wrapper">
-            <div class="cssload-loader"></div>
-        </div>
-    </div>
-
-    <!-- ***** Top Search Area Start ***** -->
-    <div class="top-search-area">
-        <!-- Search Modal -->
-        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <!-- Close Button -->
-                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
-                        <!-- Form -->
-                        <form action="index.html" method="post">
-                            <input type="search" name="top-search-bar" class="form-control" placeholder="Search and hit enter...">
-                            <button type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Top Search Area End ***** -->
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area">
-        <!-- Main Header Start -->
-        <div class="main-header-area">
-            <div class="classy-nav-container breakpoint-off">
-                <!-- Classy Menu -->
-                <nav class="classy-navbar justify-content-between" id="uzaNav">
-
-                    <!-- Logo -->
-                    <a class="nav-brand" href="<?= site_url() ?>"><?= get_webinfo()->nama_website ?></a>
-
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
-
-                    <!-- Menu -->
-                    <div class="classy-menu">
-                        <!-- Menu Close Button -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                        </div>
-
-                        <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul id="nav">
-                                <li class="current-item"><a href="<?= base_url() ?>assets/uza/./index.html">Home</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="<?= base_url() ?>assets/uza/./index.html">- Home</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./about.html">- About</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./services.html">- Services</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./portfolio.html">- Portfolio</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./portfolio-single.html">- Single Portfolio</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./blog.html">- Blog</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./single-blog.html">- Blog Details</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./contact.html">- Contact</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/#">- Dropdown</a>
-                                            <ul class="dropdown">
-                                                <li><a href="<?= base_url() ?>assets/uza/#">- Dropdown Item</a></li>
-                                                <li><a href="<?= base_url() ?>assets/uza/#">- Dropdown Item</a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="<?= base_url() ?>assets/uza/#">- Even Dropdown</a></li>
-                                                        <li><a href="<?= base_url() ?>assets/uza/#">- Even Dropdown</a></li>
-                                                        <li><a href="<?= base_url() ?>assets/uza/#">- Even Dropdown</a></li>
-                                                        <li><a href="<?= base_url() ?>assets/uza/#">- Even Dropdown</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="<?= base_url() ?>assets/uza/#">- Dropdown Item</a></li>
-                                                <li><a href="<?= base_url() ?>assets/uza/#">- Dropdown Item</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="<?= base_url() ?>assets/uza/./portfolio.html">Portfolio</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/./about.html">About</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Blog</a>
-                                    <ul class="dropdown">
-                                        <li><a href="<?= base_url() ?>assets/uza/./blog.html">- Blog</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./single-blog.html">- Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="<?= base_url() ?>assets/uza/./contact.html">Contact</a></li>
-                            </ul>
-
-                            <!-- Get A Quote -->
-                            <div class="get-a-quote ml-4 mr-3">
-                                <a href="<?= base_url() ?>assets/uza/#" class="btn uza-btn">Get A Quote</a>
-                            </div>
-
-                            <!-- Login / Register -->
-                            <div class="login-register-btn mx-3">
-                                <a href="<?= base_url() ?>assets/uza/#">Login <span>/ Register</span></a>
-                            </div>
-
-                            <!-- Search Icon -->
-                            <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                <i class="icon_search"></i>
-                            </div>
-                        </div>
-                        <!-- Nav End -->
-
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+<?php $this->load->view('home/_partial/top') ?>
 
     <!-- ***** Welcome Area Start ***** -->
     <section class="welcome-area">
         <div class="welcome-slides owl-carousel">
-
-            <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide">
-                <!-- Background Curve -->
-                <div class="background-curve">
-                    <img src="<?= base_url() ?>assets/uza/./img/core-img/curve-1.png" alt="">
-                </div>
-
-                <!-- Welcome Content -->
-                <div class="welcome-content h-100">
-                    <div class="container h-100">
-                        <div class="row h-100 align-items-center">
-                            <!-- Welcome Text -->
-                            <div class="col-12 col-md-6">
-                                <div class="welcome-text">
-                                    <h2 data-animation="fadeInUp" data-delay="100ms">Uza makes your <br> biz <span>greater</span></h2>
-                                    <h5 data-animation="fadeInUp" data-delay="400ms">We love to create "cool" things on Digital Platforms</h5>
-                                    <a href="<?= base_url() ?>assets/uza/#" class="btn uza-btn btn-2" data-animation="fadeInUp" data-delay="700ms">Start Exploring</a>
+            <?php foreach ($slider as $s): ?>
+                <!-- Single Welcome Slide -->
+                <div class="single-welcome-slide">
+                    <!-- Background Curve -->
+                    <div class="background-curve">
+                        <img src="<?= base_url() ?>assets/uza/./img/core-img/curve-1.png" alt="">
+                    </div>
+                    <!-- Welcome Content -->
+                    <div class="welcome-content h-100">
+                        <div class="container h-100">
+                            <div class="row h-100 align-items-center">
+                                <!-- Welcome Text -->
+                                <div class="col-12 col-md-6">
+                                    <div class="welcome-text">
+                                        <h2 data-animation="fadeInUp" data-delay="50ms"><?= $s->judul ?></h2>
+                                        <h5 data-animation="fadeInUp" data-delay="100ms"><?= $s->subjudul ?></h5>
+                                        <a target="_blank" href="<?= $s->link ?>" class="btn uza-btn btn-2" data-animation="fadeInUp" data-delay="700ms">Start Exploring</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Welcome Thumbnail -->
-                            <div class="col-12 col-md-6">
-                                <div class="welcome-thumbnail">
-                                    <img src="<?= base_url() ?>assets/uza/./img/bg-img/1.png" alt="" data-animation="slideInRight" data-delay="400ms">
+                                <!-- Welcome Thumbnail -->
+                                <div class="col-12 col-md-6">
+                                    <div class="welcome-thumbnail">
+                                        <img src="<?= base_url() ?>files/slider/<?= $s->foto ?>" alt="<?= $s->judul ?>" data-animation="slideInRight" data-delay="400ms">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide">
-                <!-- Background Curve -->
-                <div class="background-curve">
-                    <img src="<?= base_url() ?>assets/uza/./img/core-img/curve-1.png" alt="">
-                </div>
-
-                <!-- Welcome Content -->
-                <div class="welcome-content h-100">
-                    <div class="container h-100">
-                        <div class="row h-100 align-items-center">
-                            <!-- Welcome Text -->
-                            <div class="col-12 col-md-6">
-                                <div class="welcome-text">
-                                    <h2 data-animation="fadeInUp" data-delay="100ms">Uza makes your <br> biz <span>greater</span></h2>
-                                    <h5 data-animation="fadeInUp" data-delay="400ms">We love to create "cool" things on Digital Platforms</h5>
-                                    <a href="<?= base_url() ?>assets/uza/#" class="btn uza-btn btn-2" data-animation="fadeInUp" data-delay="700ms">Start Exploring</a>
-                                </div>
-                            </div>
-                            <!-- Welcome Thumbnail -->
-                            <div class="col-12 col-md-6">
-                                <div class="welcome-thumbnail">
-                                    <img src="<?= base_url() ?>assets/uza/./img/bg-img/1.png" alt="" data-animation="slideInRight" data-delay="400ms">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide">
-                <!-- Background Curve -->
-                <div class="background-curve">
-                    <img src="<?= base_url() ?>assets/uza/./img/core-img/curve-1.png" alt="">
-                </div>
-
-                <!-- Welcome Content -->
-                <div class="welcome-content h-100">
-                    <div class="container h-100">
-                        <div class="row h-100 align-items-center">
-                            <!-- Welcome Text -->
-                            <div class="col-12 col-md-6">
-                                <div class="welcome-text">
-                                    <h2 data-animation="fadeInUp" data-delay="100ms">Uza makes your <br> biz <span>greater</span></h2>
-                                    <h5 data-animation="fadeInUp" data-delay="400ms">We love to create "cool" things on Digital Platforms</h5>
-                                    <a href="<?= base_url() ?>assets/uza/#" class="btn uza-btn btn-2" data-animation="fadeInUp" data-delay="700ms">Start Exploring</a>
-                                </div>
-                            </div>
-                            <!-- Welcome Thumbnail -->
-                            <div class="col-12 col-md-6">
-                                <div class="welcome-thumbnail">
-                                    <img src="<?= base_url() ?>assets/uza/./img/bg-img/1.png" alt="" data-animation="slideInRight" data-delay="400ms">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <?php endforeach ?>
         </div>
     </section>
     <!-- ***** Welcome Area End ***** -->
@@ -582,7 +385,7 @@
 
                 <!-- Single Blog Post -->
                 <div class="col-12 col-lg-4">
-                    <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/8.jpg);">
+                    <div class="single-blog-post bg-img mb-80" style="background-image: url(<?= base_url() ?>assets/uza/./img/bg-img/8.jpg);">
                         <!-- Post Content -->
                         <div class="post-content">
                             <span class="post-date"><span>23</span> August, 2018</span>
@@ -595,7 +398,7 @@
 
                 <!-- Single Blog Post -->
                 <div class="col-12 col-lg-4">
-                    <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/9.jpg);">
+                    <div class="single-blog-post bg-img mb-80" style="background-image: url(<?= base_url() ?>assets/uza/./img/bg-img/9.jpg);">
                         <!-- Post Content -->
                         <div class="post-content">
                             <span class="post-date"><span>13</span> December, 2018</span>
@@ -608,7 +411,7 @@
 
                 <!-- Single Blog Post -->
                 <div class="col-12 col-lg-4">
-                    <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/10.jpg);">
+                    <div class="single-blog-post bg-img mb-80" style="background-image: url(<?= base_url() ?>assets/uza/./img/bg-img/10.jpg);">
                         <!-- Post Content -->
                         <div class="post-content">
                             <span class="post-date"><span>08</span> July, 2018</span>
@@ -638,8 +441,8 @@
                 <!-- Newsletter Form -->
                 <div class="col-12 col-md-6 col-lg-5">
                     <div class="nl-form mb-80">
-                        <form action="#" method="post">
-                            <input type="email" name="nl-email" value="" placeholder="Your Email">
+                        <form action="<?= site_url('home/beranda/kirim-email') ?>" method="post">
+                            <input type="email" name="email" value="" required placeholder="Your Email">
                             <button type="submit">Subscribe</button>
                         </form>
                     </div>
@@ -651,113 +454,4 @@
     </section>
     <!-- ***** Newsletter Area End ***** -->
 
-    <!-- ***** Footer Area Start ***** -->
-    <footer class="footer-area section-padding-80-0">
-        <div class="container">
-            <div class="row justify-content-between">
-
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-80">
-                        <!-- Widget Title -->
-                        <h4 class="widget-title">Contact Us</h4>
-
-                        <!-- Footer Content -->
-                        <div class="footer-content mb-15">
-                            <h3>(+65) 1234 5678</h3>
-                            <p>40 Baria Sreet 13/2 NY City, US <br> hello.colorlib@gmail.com</p>
-                        </div>
-                        <p class="mb-0">Mon - Fri: 9:00 - 19:00 <br>
-                            Closed on Weekends</p>
-                    </div>
-                </div>
-
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-80">
-                        <!-- Widget Title -->
-                        <h4 class="widget-title">Quick Link</h4>
-
-                        <!-- Nav -->
-                        <nav>
-                            <ul class="our-link">
-                                <li><a href="<?= base_url() ?>assets/uza/#">About Us</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Blog</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Contact Us</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Forum Registeration</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Forum Sign In</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-80">
-                        <!-- Widget Title -->
-                        <h4 class="widget-title">Resources</h4>
-
-                        <!-- Nav -->
-                        <nav>
-                            <ul class="our-link">
-                                <li><a href="<?= base_url() ?>assets/uza/#">Customer Support</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Privacy</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Media &amp; Press</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Our Team</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Contact</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-80">
-                        <!-- Widget Title -->
-                        <h4 class="widget-title">About Us</h4>
-                        <p>Integer vehicula mauris libero, at molestie eros imperdiet sit amet.</p>
-
-                        <!-- Copywrite Text -->
-                        <div class="copywrite-text mb-30">
-                            <p>&copy; Copyright 2018 <a href="<?= base_url() ?>assets/uza/#">Colorlib</a>.</p>
-                        </div>
-
-                        <!-- Social Info -->
-                        <div class="footer-social-info">
-                            <a href="<?= base_url() ?>assets/uza/#" class="facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="<?= base_url() ?>assets/uza/#" class="twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="<?= base_url() ?>assets/uza/#" class="pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
-                            <a href="<?= base_url() ?>assets/uza/#" class="instagram" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
-                            <a href="<?= base_url() ?>assets/uza/#" class="youtube" data-toggle="tooltip" data-placement="top" title="YouTube"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
- <div class="row" style="margin-bottom: 30px;">
-                
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="<?= base_url() ?>assets/uza/https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </div>
-
-        </div>
-    </footer>
-    <!-- ***** Footer Area End ***** -->
-
-    <!-- ******* All JS Files ******* -->
-    <!-- jQuery js -->
-    <script src="<?= base_url() ?>assets/uza/js/jquery.min.js"></script>
-    <!-- Popper js -->
-    <script src="<?= base_url() ?>assets/uza/js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script js/bootstrap.min.js"></script>
-    <!-- All js -->
-    <script src="<?= base_url() ?>assets/uza/js/uza.bundle.js"></script>
-    <!-- Active js -->
-    <script src="<?= base_url() ?>assets/uza/js/default-assets/active.js"></script>
-
-</body>
-
-</html>
+<?php $this->load->view('home/_partial/bottom'); ?>

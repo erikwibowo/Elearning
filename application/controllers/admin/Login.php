@@ -19,7 +19,6 @@ class Login extends CI_Controller {
 	}
 
 	public function auth(){
-		$this->load->model('Mlog');
 		$email		= $this->input->post("email");
 		$password	= $this->input->post("password");
 		$response_key = $this->input->post('g-recaptcha-response');
@@ -36,68 +35,31 @@ class Login extends CI_Controller {
 				if ($data->status == 1) {
 					if (password_verify($password, $data->password)) {
 						$this->Madmin->update(array('login' => date("Y-m-d H:i")), $data->id_admin);
-						$data_log = array(
-							'ip_address'	=> ip(),
-							'browser'		=> $_SERVER['HTTP_USER_AGENT'],
-							'keterangan'	=> $data->nama_admin." berhaisil login ke halaman admin",
-							'url'			=> current_url()
-						);
-						$this->Mlog->insert($data_log);
+						set_log($data->nama_admin." berhaisil login ke halaman admin");
 						$this->session->set_userdata(array('id_admin' => $data->id_admin));
 						notif("Selamat datang, <b>".$data->nama_admin."</b>", "i");
 						redirect('admin','refresh');
 					}else{
-						$data_log = array(
-							'ip_address'	=> ip(),
-							'browser'		=> $_SERVER['HTTP_USER_AGENT'],
-							'keterangan'	=> $email." | ".$password.". Gagal login ke halaman admin karena kombinasi email dan kata sandi tidak cocok",
-							'url'			=> current_url()
-						);
-						$this->Mlog->insert($data_log);
+						set_log($email." | ".$password.". Gagal login ke halaman admin karena kombinasi email dan kata sandi tidak cocok");
 						notif("Kombinasi email dan kata sandi anda tidak cocok", "e");
 					}
 				}else{
-					$data_log = array(
-						'ip_address'	=> ip(),
-						'browser'		=> $_SERVER['HTTP_USER_AGENT'],
-						'keterangan'	=> $email." | ".$password.". Gagal login ke halaman admin karena akun tidak aktif",
-						'url'			=> current_url()
-					);
-					$this->Mlog->insert($data_log);
+					set_log($email." | ".$password.". Gagal login ke halaman admin karena akun tidak aktif");
 					notif("Akun anda tidak aktif. Hubungi adminitrator", "e");
 				}
 			}else{
-				$data_log = array(
-					'ip_address'	=> ip(),
-					'browser'		=> $_SERVER['HTTP_USER_AGENT'],
-					'keterangan'	=> $email." | ".$password.". Gagal login ke halaman admin karena kombinasi email dan kata sandi tidak cocok",
-					'url'			=> current_url()
-				);
-				$this->Mlog->insert($data_log);
+				set_log($email." | ".$password.". Gagal login ke halaman admin karena kombinasi email dan kata sandi tidak cocok");
 				notif("Kombinasi email dan kata sandi anda tidak cocok", "e");
 			}
 		}else{
-			$data_log = array(
-				'ip_address'	=> ip(),
-				'browser'		=> $_SERVER['HTTP_USER_AGENT'],
-				'keterangan'	=> $email." | ".$password.". Gagal login ke halaman admin karena kesalahan recaptcha",
-				'url'			=> current_url()
-			);
-			$this->Mlog->insert($data_log);
+			set_log($email." | ".$password.". Gagal login ke halaman admin karena kesalahan recaptcha");
 			notif("Ups! Sepertinya anda robot", "e");
 		}
 		redirect('admin/login','refresh');
 	}
 
 	public function logout(){
-		$this->load->model('Mlog');
-		$data_log = array(
-			'ip_address'	=> ip(),
-			'browser'		=> $_SERVER['HTTP_USER_AGENT'],
-			'keterangan'	=> admin()->nama_admin." keluar dari sistem admin",
-			'url'			=> current_url()
-		);
-		$this->Mlog->insert($data_log);
+		set_log(admin()->nama_admin." keluar dari sistem admin");
 		$this->session->unset_userdata(array('id_admin'));
 		notif("Sampai jumpa lagi :)", "i");
 		redirect('admin/login','refresh');

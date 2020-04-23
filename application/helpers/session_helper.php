@@ -9,19 +9,34 @@ if ( ! function_exists('notif')){
 }
 
 if ( ! function_exists('admin')){
-	function admin(){
-		$ci =& get_instance();
-		$id_admin = $ci->session->userdata('id_admin');
-		$ci->load->model('Madmin');
+    function admin(){
+        $ci =& get_instance();
+        $id_admin = $ci->session->userdata('id_admin');
+        $ci->load->model('Madmin');
 
-		if (empty($id_admin)) {
-			notif("Ups! Anda tidak memiliki hak akses untuk memasuki halaman ini", "i");
-			redirect('admin/login','refresh');
-		}else{
-			$data = $ci->Madmin->read_where(array('id_admin' => $id_admin))->row();
-			return $data;
-		}
-	}
+        if (empty($id_admin)) {
+            notif("Ups! Anda tidak memiliki hak akses untuk memasuki halaman ini", "i");
+            redirect('admin/login','refresh');
+        }else{
+            $data = $ci->Madmin->read_where(array('id_admin' => $id_admin))->row();
+            return $data;
+        }
+    }
+}
+
+if ( ! function_exists('set_log')){
+    function set_log($log){
+        $ci =& get_instance();
+        $ci->load->model('Mlog');
+
+        $data_log = array(
+            'ip_address'    => ip(),
+            'browser'       => $_SERVER['HTTP_USER_AGENT'],
+            'keterangan'    => $log,
+            'url'           => current_url()
+        );
+        $ci->Mlog->insert($data_log);
+    }
 }
 
 if ( ! function_exists('ip')){
