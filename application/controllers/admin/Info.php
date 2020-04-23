@@ -6,7 +6,7 @@ class Info extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Minfo');
-		role_admin();
+		admin();
 	}
 
 	public function index(){

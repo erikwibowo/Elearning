@@ -8,12 +8,39 @@ if ( ! function_exists('notif')){
 	}
 }
 
-if ( ! function_exists('role_admin')){
-	function role_admin(){
+if ( ! function_exists('admin')){
+	function admin(){
 		$ci =& get_instance();
-		if (empty($ci->session->userdata('id_admin'))) {
+		$id_admin = $ci->session->userdata('id_admin');
+		$ci->load->model('Madmin');
+
+		if (empty($id_admin)) {
 			notif("Ups! Anda tidak memiliki hak akses untuk memasuki halaman ini", "i");
 			redirect('admin/login','refresh');
+		}else{
+			$data = $ci->Madmin->read_where(array('id_admin' => $id_admin))->row();
+			return $data;
 		}
 	}
+}
+
+if ( ! function_exists('ip')){
+    function ip() {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if(getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if(getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if(getenv('HTTP_FORWARDED'))
+           $ipaddress = getenv('HTTP_FORWARDED');
+        else if(getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
+    }
 }

@@ -198,8 +198,8 @@
             </div>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="<?= base_url() ?>assets/admin/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, <?= $this->session->userdata('nama_admin'); ?></div></a>
+            <img alt="image" src="<?= base_url() ?>files/admin/thumb/<?= admin()->thumb_admin ?>" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block">Hi, <?= admin()->nama_admin ?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="http://localhost/elearning/dist/features_profile" class="dropdown-item has-icon">
@@ -212,7 +212,7 @@
                 <i class="fas fa-cog"></i> Settings
               </a>
               <div class="dropdown-divider"></div>
-              <a href="<?= site_url('admin/logout') ?>" class="dropdown-item has-icon text-danger">
+              <a style="cursor: pointer;" data-confirm="Keluar dari sistem|Apakah anda yakin akan <b>keluar</b> dari sistem?" data-confirm-yes="window.location = '<?= site_url('admin/logout') ?>'" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>

@@ -5,7 +5,7 @@ class Dashboard extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		role_admin();
+		admin();
 	}
 
 	public function index(){
