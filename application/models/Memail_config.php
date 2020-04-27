@@ -21,6 +21,11 @@ class Memail_config extends CI_Model {
 		return $this->db->update('email_config', $data);
 	}
 
+	public function update_not($data, $id){
+		$this->db->where('id_email_config <>', $id);
+		return $this->db->update('email_config', $data);
+	}
+
 	public function delete($id){
 		$this->db->where('id_email_config', $id);
 		return $this->db->delete('email_config');

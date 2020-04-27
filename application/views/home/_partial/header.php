@@ -7,7 +7,7 @@
                 <nav class="classy-navbar justify-content-between" id="uzaNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="<?= site_url() ?>"><?= get_webinfo()->nama_website ?></a>
+                    <a class="nav-brand" href="<?= site_url() ?>"><?= get_webinfo()->nama_singkat_website ?></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">

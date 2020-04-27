@@ -51,7 +51,7 @@
                                     <a style="color: white" data-toggle="tooltip" title="Lihat/Edit Data" class="btn btn-sm btn-info btn-edit" data-id="<?= $x->id_slider ?>"><i class="fa fa-eye"></i></a>
 
                                     <?php if ($x->aktif == 0){ ?>
-                                       <a data-toggle="tooltip" title="Aktifkan Data" href="#" class="btn btn-sm btn-warning" data-confirm="Aktifkan data|Apakah anda yakin akan mengaktifkan <b><?= x($x->judul) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/slider/aktifkan/'.$x->id_slider) ?>'"><i class="fa fa-uncheck"></i></a>
+                                       <a data-toggle="tooltip" title="Aktifkan Data" href="#" class="btn btn-sm btn-warning" data-confirm="Aktifkan data|Apakah anda yakin akan mengaktifkan <b><?= x($x->judul) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/slider/aktifkan/'.$x->id_slider) ?>'"><i class="fa fa-times"></i></a>
                                     <?php }else{ ?>
                                        <a data-toggle="tooltip" title="Nonaktifkan Data" href="#" class="btn btn-sm btn-warning" data-confirm="Non aktifkan data|Apakah anda yakin akan menonaktifkan <b><?= x($x->judul) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/slider/non-aktifkan/'.$x->id_slider) ?>'"><i class="fa fa-check"></i></a>
                                     <?php } ?>

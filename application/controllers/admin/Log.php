@@ -10,7 +10,7 @@ class Log extends CI_Controller {
 	}
 
 	public function index(){
-		$x['title']		= "Admin - Log ".get_webinfo()->nama_website;
+		$x['title']		= "Log - Admin ".get_webinfo()->nama_website;
 		$x['data']		= $this->Mlog->read()->result();
 		$this->load->view('admin/log/index', $x);
 	}

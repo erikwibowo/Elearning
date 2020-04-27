@@ -10,47 +10,29 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form method="POST" action="<?= site_url('admin/admin/insert') ?>" enctype="multipart/form-data">
+				<form method="POST" action="<?= site_url('admin/slider/insert') ?>" enctype="multipart/form-data">
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Foto Admin</label>
+						<label class="col-sm-2 col-form-label">Foto Slider</label>
 						<div class="col-sm-10">
-							<input type="file" name="foto" required class="form-control" placeholder="Foto Admin">
+							<input type="file" name="foto" required class="form-control" placeholder="Foto Slider">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Nama Admin</label>
+						<label class="col-sm-2 col-form-label">Judul Slider</label>
 						<div class="col-sm-10">
-							<input type="text" name="nama_admin" required class="form-control" placeholder="Nama Admin">
+							<input type="text" name="judul" required class="form-control" placeholder="Judul Slider">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Email Admin</label>
+						<label class="col-sm-2 col-form-label">Subjudul Slider</label>
 						<div class="col-sm-10">
-							<input type="email" name="email_admin" required class="form-control" placeholder="Email Admin">
+							<input type="text" name="subjudul" required class="form-control" placeholder="Subjudul Slider">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Telepon Admin</label>
+						<label class="col-sm-2 col-form-label">Link Slider</label>
 						<div class="col-sm-10">
-							<input type="text" name="telp_admin" required class="form-control" placeholder="Telepon Admin">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Alamat Admin</label>
-						<div class="col-sm-10">
-							<textarea name="alamat_admin" required class="form-control" placeholder="Alamat Admin"></textarea>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Username</label>
-						<div class="col-sm-10">
-							<input type="text" name="username" required class="form-control" placeholder="Username">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Password</label>
-						<div class="col-sm-10">
-							<input type="password" name="password" required class="form-control" placeholder="Password">
+							<input type="text" name="link" required class="form-control" placeholder="Link Slider">
 						</div>
 					</div>
 			</div>
@@ -72,18 +54,16 @@
             $('#loading').modal('show');
             $.ajax({
                 type : "POST",
-                url  : "<?= site_url('admin/admin/data') ?>",
+                url  : "<?= site_url('admin/slider/data') ?>",
                 dataType : "JSON",
                 data : {id:id},
                 success: function(data){
                     $('#loading').modal('hide');
-                    $("#nama_admin").val(data.nama_admin);
-                    $("#email_admin").val(data.email_admin);
-                    $("#telp_admin").val(data.telp_admin);
-                    $("#alamat_admin").val(data.alamat_admin);
-                    $("#username").val(data.username);
-                    $("#id_admin").val(data.id_admin);
-                    $("#foto").attr("src", data.thumb_admin);
+                    $("#judul").val(data.judul);
+                    $("#subjudul").val(data.subjudul);
+                    $("#link").val(data.link);
+                    $("#id_slider").val(data.id_slider);
+                    $("#foto").attr("src", data.foto);
                     $('#modal-edit').modal({backdrop: 'static', keyboard: false});
                     $('#modal-edit').modal('show');
                 }
@@ -104,49 +84,31 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form method="POST" action="<?= site_url('admin/admin/update') ?>" enctype="multipart/form-data">
+				<form method="POST" action="<?= site_url('admin/slider/update') ?>" enctype="multipart/form-data">
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Foto Admin</label>
+						<label class="col-sm-2 col-form-label">Foto Slider</label>
 						<div class="col-sm-10">
-                            <img src="" id="foto"><br>
+                            <img src="" id="foto" width="150px"><br>
                             <input type="file" name="foto" class="form-control" placeholder="Foto Admin">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Nama Admin</label>
+						<label class="col-sm-2 col-form-label">Judul Slider</label>
 						<div class="col-sm-10">
-							<input type="text" id="nama_admin" name="nama_admin" required class="form-control" placeholder="Nama Admin">
-							<input type="hidden" id="id_admin" name="id_admin" required class="form-control" placeholder="Id Admin">
+							<input type="text" id="judul" name="judul" required class="form-control" placeholder="Judul Slider">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Email Admin</label>
+						<label class="col-sm-2 col-form-label">Subjudul Slider</label>
 						<div class="col-sm-10">
-							<input type="email" id="email_admin"  name="email_admin" required class="form-control" placeholder="Email Admin">
+							<input type="text" id="subjudul" name="subjudul" required class="form-control" placeholder="Subjudul Slider">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Telepon Admin</label>
+						<label class="col-sm-2 col-form-label">Link Slider</label>
 						<div class="col-sm-10">
-							<input type="text" id="telp_admin" name="telp_admin" required class="form-control" placeholder="Telepon Admin">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Alamat Admin</label>
-						<div class="col-sm-10">
-							<textarea id="alamat_admin" name="alamat_admin" required class="form-control" placeholder="Alamat Admin"></textarea>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Username</label>
-						<div class="col-sm-10">
-							<input type="text" id="username" name="username" required class="form-control" placeholder="Username">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Password</label>
-						<div class="col-sm-10">
-							<input type="password" name="password" class="form-control" placeholder="Password">
+							<input type="text" id="link" name="link" required class="form-control" placeholder="Link Slider">
+							<input type="hidden" name="id_slider" id="id_slider">
 						</div>
 					</div>
 			</div>

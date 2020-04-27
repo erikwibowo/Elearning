@@ -53,12 +53,9 @@
                                     <a style="color: white" data-toggle="tooltip" title="Lihat/Edit Data" class="btn btn-sm btn-info btn-edit" data-id="<?= $x->id_email_config ?>"><i class="fa fa-eye"></i></a>
 
                                     <?php if ($x->aktif == 0){ ?>
-                                       <a data-toggle="tooltip" title="Aktifkan Data" href="#" class="btn btn-sm btn-warning" data-confirm="Aktifkan data|Apakah anda yakin akan mengaktifkan <b><?= x($x->email) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/admin/aktifkan/'.$x->id_email_config) ?>'"><i class="fa fa-unlock"></i></a>
-                                    <?php }else{ ?>
-                                       <a data-toggle="tooltip" title="Nonaktifkan Data" href="#" class="btn btn-sm btn-warning" data-confirm="Non aktifkan data|Apakah anda yakin akan menonaktifkan <b><?= x($x->email) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/admin/non-aktifkan/'.$x->id_email_config) ?>'"><i class="fa fa-lock"></i></a>
+                                       <a data-toggle="tooltip" title="Aktifkan Data" href="#" class="btn btn-sm btn-warning" data-confirm="Aktifkan data|Apakah anda yakin akan mengaktifkan <b><?= x($x->email) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/konfigurasi-email/aktifkan/'.$x->id_email_config) ?>'"><i class="fa fa-check"></i></a>
+                                       <a data-toggle="tooltip" title="Hapus Data" href="#" class="btn btn-sm btn-danger" data-confirm="Hapus data|Apakah anda yakin akan menghapus <b><?= x($x->email) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/konfigurasi-email/delete/'.$x->id_email_config) ?>'"><i class="fa fa-trash"></i></a>
                                     <?php } ?>
-
-                                    <a data-toggle="tooltip" title="Hapus Data" href="#" class="btn btn-sm btn-danger" data-confirm="Hapus data|Apakah anda yakin akan menghapus <b><?= x($x->email) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/admin/delete/'.$x->id_email_config) ?>'"><i class="fa fa-trash"></i></a>
                                  </div>
                               </td>
                            </tr>
@@ -73,4 +70,5 @@
    </div>
 </section>
 </div>
+<?php $this->load->view('admin/email-config/modal'); ?>
 <?php $this->load->view('admin/_partial/bottom'); ?>

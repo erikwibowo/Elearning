@@ -10,9 +10,61 @@ class Konfigurasi_email extends CI_Controller {
 	}
 
 	public function index(){
-		$x['title']		= "Admin - Konfigurasi Email ".get_webinfo()->nama_website;
+		$x['title']		= "Konfigurasi Email - Admin ".get_webinfo()->nama_website;
 		$x['data']		= $this->Memail_config->read()->result();
 		$this->load->view('admin/email-config/index', $x);
+	}
+
+	public function aktifkan($id){
+		if ($this->Memail_config->update(array('aktif' => 1), $id)) {
+			$this->Memail_config->update_not(array('aktif' => 0), $id);
+			notif("Data berhasil diaktifkan", "s");
+		}else{
+			notif("Data gagal diaktifkan", "e");
+		}
+		redirect('admin/konfigurasi-email','refresh');
+	}
+
+	public function delete($id){
+		if ($this->Memail_config->delete($id)) {
+			notif("Data berhasil dihapus", "s");
+		}else{
+			notif("Data gagal dihapus", "e");
+		}
+		redirect('admin/konfigurasi-email','refresh');
+	}
+
+	public function non_aktifkan($id){
+		if ($this->Memail_config->update(array('aktif' => 0), $id)) {
+			notif("Data berhasil dinonaktifkan", "s");
+		}else{
+			notif("Data gagal dinonaktifkan", "e");
+		}
+		redirect('admin/konfigurasi-email','refresh');
+	}
+
+	public function insert(){
+		if ($this->Memail_config->insert($this->input->post())) {
+			notif("Data berhasil disimpan", "s");
+		}else{
+			notif("Data gagal disimpan", "e");
+		}
+		redirect('admin/konfigurasi-email','refresh');
+	}
+
+	public function update(){
+		if ($this->Memail_config->update($this->input->post(), $this->input->post('id'))) {
+			notif("Data berhasil disimpan", "s");
+		}else{
+			notif("Data gagal disimpan", "e");
+		}
+		redirect('admin/konfigurasi-email','refresh');
+	}
+
+	public function data(){
+		$id = $this->input->post('id');
+		$x = $this->Memail_config->read_where(array('id_email_config' => $id))->row();
+		echo json_encode($x);
 	}
 
 }

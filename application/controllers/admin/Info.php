@@ -10,7 +10,7 @@ class Info extends CI_Controller {
 	}
 
 	public function index(){
-		$x['title']		= "Admin - Info ".get_webinfo()->nama_website;
+		$x['title']		= "Info - Admin ".get_webinfo()->nama_website;
 		$x['data']		= $this->Minfo->read()->result();
 		$this->load->view('admin/info/index', $x);
 	}
