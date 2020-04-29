@@ -89,7 +89,7 @@ class Admin extends CI_Controller {
 		if ($this->Madmin->insert($data)) {
 			notif("Data berhasil disimpan", "s");
 		}else{
-			notif("Data gagal dinonaktifkan", "e");
+			notif("Data gagal disimpan", "e");
 		}
 		redirect('admin/admin','refresh');
 	}
@@ -153,7 +153,7 @@ class Admin extends CI_Controller {
 					unlink($path."thumb/".$x->thumb_admin);
 					notif("Data berhasil disimpan", "s");
 				}else{
-					notif("Data gagal dinonaktifkan", "e");
+					notif("Data gagal disimpan", "e");
 				}
             }else{
 				if(empty($this->input->post('password'))){
@@ -177,7 +177,7 @@ class Admin extends CI_Controller {
 				if ($this->Madmin->update($data, $id_admin)) {
 					notif("Data berhasil disimpan", "s");
 				}else{
-					notif("Data gagal dinonaktifkan", "e");
+					notif("Data gagal disimpan", "e");
 				}
 			}
         }

@@ -39,6 +39,15 @@ if ( ! function_exists('set_log')){
     }
 }
 
+if ( ! function_exists('slug')){
+    function slug($judul){
+        $string=preg_replace("/[^a-zA-Z0-9 &%|{.}=,?!*()-_+$@;<>']/", '', $judul);
+        $trim=trim($string);
+        $pre_slug=strtolower(str_replace(" ", "-", $trim));
+        return $slug=$pre_slug.'.html';
+    }
+}
+
 if ( ! function_exists('ip')){
     function ip() {
         $ipaddress = '';
