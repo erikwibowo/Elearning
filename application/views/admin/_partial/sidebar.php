@@ -32,6 +32,9 @@
                <li class="<?= ($this->uri->segment(2) == 'blog' && $this->uri->segment(3) == 'data') ? 'active':'' ?>"><a class="nav-link" href="<?= site_url('admin/blog/data') ?>">Data Blog</a></li>
             </ul>
          </li>
+         <li class="<?= $this->uri->segment(2) == 'halaman' ? 'active':'' ?>">
+            <a class="nav-link" href="<?= site_url('admin/halaman') ?>"><i class="far fa-file"></i> <span>Halaman</span></a>
+         </li>
 
          <li class="menu-header">Pengaturan</li>
          <li class="<?= $this->uri->segment(2) == 'info' ? 'active':'' ?>">

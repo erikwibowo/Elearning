@@ -22,7 +22,7 @@ class Login extends CI_Controller {
 		$email		= $this->input->post("email");
 		$password	= $this->input->post("password");
 		$response_key = $this->input->post('g-recaptcha-response');
-		$secret_key = "6LcWV8cUAAAAALE22UKZozVR1QfgORhxgKV7eYkS";
+		$secret_key = "6LdPCbkUAAAAAE30smSQVuEwKeaVa5ZBubGd3HYl";
 
 		$verify = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret_key.'&response='.$response_key);
 		$response = json_decode($verify);

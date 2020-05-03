@@ -3,10 +3,10 @@
 <div class="main-content">
    <section class="section">
       <div class="section-header">
-         <h1>Edit Blog</h1>
+         <h1>Edit Halaman</h1>
          <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item"><a href="<?= site_url('admin/blog/data') ?>">Blog</a></div>
-            <div class="breadcrumb-item active"><a href="#">Edit Blog</a></div>
+            <div class="breadcrumb-item"><a href="<?= site_url('admin/halaman/data') ?>">Halaman</a></div>
+            <div class="breadcrumb-item active"><a href="#">Edit Halaman</a></div>
          </div>
       </div>
       <div class="row">
@@ -18,24 +18,24 @@
                <div class="card-body">
                   <div class="row">
                      <div class="col-12">
-                        <form method="POST" action="<?= site_url('admin/blog/update') ?>" enctype="multipart/form-data">
+                        <form method="POST" action="<?= site_url('admin/halaman/update') ?>" enctype="multipart/form-data">
                            <div class="form-group">
                               <label>Judul</label>
-                              <input type="text" value="<?= $data->judul_blog ?>" name="judul_blog" required class="form-control" placeholder="Ketikkan judul blog">
+                              <input type="text" value="<?= $data->judul_halaman ?>" name="judul_halaman" required class="form-control" placeholder="Ketikkan judul halaman">
                            </div>
                            <div class="form-group">
-                              <label>Header Blog</label><br>
-                              <img src="<?= base_url('files/blog/thumb/'.$data->thumb_blog) ?>" width="300px"><br>
-                              <input type="file" name="foto" class="form-control" placeholder="Ketikkan judul blog">
+                              <label>Header Halaman</label><br>
+                              <img src="<?= base_url('files/halaman/thumb/'.$data->thumb_halaman) ?>" width="300px"><br>
+                              <input type="file" name="foto" class="form-control" placeholder="Ketikkan judul halaman">
                            </div>
                            <div class="form-group">
-                              <label>Isi Blog</label>
-                              <textarea class="summernote" name="isi_blog"><?= $data->isi_blog ?></textarea>
+                              <label>Isi Halaman</label>
+                              <textarea class="summernote" name="isi_halaman"><?= $data->isi_halaman ?></textarea>
                            </div>
                            <div class="form-group">
-                              <label>Meta Blog</label>
-                              <textarea class="form-control" name="meta_blog" required><?= $data->meta_blog ?></textarea>
-                              <input type="hidden" name="id_blog" value="<?= $data->id_blog ?>">
+                              <label>Meta Halaman</label>
+                              <textarea class="form-control" name="meta_halaman" required><?= $data->meta_halaman ?></textarea>
+                              <input type="hidden" name="id_halaman" value="<?= $data->id_halaman ?>">
                            </div>
                            <div class="form-group">
                              <button onclick="history.back()" class="btn btn-danger">Batal</button>
@@ -55,7 +55,7 @@
 <script src="<?= base_url() ?>assets/admin/modules/summernote/summernote-bs4.js"></script>
 <script>
    $('.summernote').summernote({
-      placeholder: 'Ketikkan isi blog...',
+      placeholder: 'Ketikkan isi halaman...',
       tabsize: 2,
       height: 500
    });
