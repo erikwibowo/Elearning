@@ -35,7 +35,8 @@
                               <td><?= $no++ ?></td>
                               <td>
                                  <img alt="image" src="<?= base_url('files/blog/thumb/'.$x->thumb_blog) ?>" class="img" width="35" data-toggle="tooltip" title="<?= x($x->judul_blog) ?>"> &nbsp;
-                                 <?= x($x->judul_blog) ?>
+                                 <?= x($x->judul_blog) ?> &nbsp; &nbsp;
+                                 <i class="fas fa-eye"> <?= $x->counter ?></i>
                               </td>
                               <td><?= x($x->slug_blog) ?></td>
                               <td>
