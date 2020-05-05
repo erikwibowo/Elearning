@@ -24,43 +24,18 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul id="nav">
-                                <li class="current-item"><a href="<?= base_url() ?>assets/uza/./index.html">Home</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="<?= base_url() ?>assets/uza/./index.html">- Home</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./about.html">- About</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./services.html">- Services</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./portfolio.html">- Portfolio</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./portfolio-single.html">- Single Portfolio</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./blog.html">- Blog</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./single-blog.html">- Blog Details</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./contact.html">- Contact</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/#">- Dropdown</a>
-                                            <ul class="dropdown">
-                                                <li><a href="<?= base_url() ?>assets/uza/#">- Dropdown Item</a></li>
-                                                <li><a href="<?= base_url() ?>assets/uza/#">- Dropdown Item</a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="<?= base_url() ?>assets/uza/#">- Even Dropdown</a></li>
-                                                        <li><a href="<?= base_url() ?>assets/uza/#">- Even Dropdown</a></li>
-                                                        <li><a href="<?= base_url() ?>assets/uza/#">- Even Dropdown</a></li>
-                                                        <li><a href="<?= base_url() ?>assets/uza/#">- Even Dropdown</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="<?= base_url() ?>assets/uza/#">- Dropdown Item</a></li>
-                                                <li><a href="<?= base_url() ?>assets/uza/#">- Dropdown Item</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="<?= base_url() ?>assets/uza/./portfolio.html">Portfolio</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/./about.html">About</a></li>
-                                <li><a href="<?= base_url() ?>assets/uza/#">Blog</a>
-                                    <ul class="dropdown">
-                                        <li><a href="<?= base_url() ?>assets/uza/./blog.html">- Blog</a></li>
-                                        <li><a href="<?= base_url() ?>assets/uza/./single-blog.html">- Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="<?= base_url() ?>assets/uza/./contact.html">Contact</a></li>
+                                <?php foreach ($this->Mmenu->read_where(['tipe_menu <>' => 'C'])->result() as $key):
+                                if ($key->tipe_menu == "P") { ?>
+                                    <li><a href="<?= site_url(x($key->url_menu)) ?>"><?= $key->nama_menu ?></a>
+                                        <ul class="dropdown">
+                                            <?php foreach ($this->Mmenu->read_where(['parent' => $key->id_menu])->result() as $s): ?>
+                                                <li><a href="<?= site_url(x($s->url_menu)) ?>"><?= $s->nama_menu ?></a></li>
+                                            <?php endforeach ?>
+                                        </ul>
+                                    </li>
+                                <?php }else{ ?>
+                                    <li><a href="<?= site_url(x($key->url_menu)) ?>"><?= $key->nama_menu ?></a></li>
+                                <?php } endforeach ?>
                             </ul>
 
                             <!-- Get A Quote -->

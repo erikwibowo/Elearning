@@ -22,6 +22,9 @@
          </li>
 
          <li class="menu-header">HALAMAN AWAL</li>
+         <li class="<?= $this->uri->segment(2) == 'menu' ? 'active':'' ?>">
+            <a class="nav-link" href="<?= site_url('admin/menu') ?>"><i class="fas fa-bars"></i> <span>Menu</span></a>
+         </li>
          <li class="<?= $this->uri->segment(2) == 'slider' ? 'active':'' ?>">
             <a class="nav-link" href="<?= site_url('admin/slider') ?>"><i class="far fa-image"></i> <span>Slider</span></a>
          </li>
