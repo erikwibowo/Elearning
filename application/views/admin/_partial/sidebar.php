@@ -20,6 +20,12 @@
          <li class="<?= $this->uri->segment(2) == 'siswa' ? 'active':'' ?>">
             <a class="nav-link" href="<?= site_url('admin/siswa') ?>"><i class="fas fa-user-graduate"></i> <span>Siswa</span></a>
          </li>
+         <li class="<?= $this->uri->segment(2) == 'kelas' ? 'active':'' ?>">
+            <a class="nav-link" href="<?= site_url('admin/kelas') ?>"><i class="fas fa-school"></i> <span>Kelas</span></a>
+         </li>
+         <li class="<?= $this->uri->segment(2) == 'materi' ? 'active':'' ?>">
+            <a class="nav-link" href="<?= site_url('admin/materi') ?>"><i class="fas fa-book"></i> <span>Materi</span></a>
+         </li>
 
          <li class="menu-header">HALAMAN AWAL</li>
          <li class="<?= $this->uri->segment(2) == 'menu' ? 'active':'' ?>">
@@ -37,6 +43,13 @@
          </li>
          <li class="<?= $this->uri->segment(2) == 'halaman' ? 'active':'' ?>">
             <a class="nav-link" href="<?= site_url('admin/halaman') ?>"><i class="far fa-file"></i> <span>Halaman</span></a>
+         </li>
+         <li class="dropdown <?= $this->uri->segment(2) == 'galeri' ? 'active':'' ?>">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-image"></i> <span>Galeri</span></a>
+            <ul class="dropdown-menu" style="<?= $this->uri->segment(2) == 'galeri' ? '':'display: none' ?>">
+               <li class="<?= ($this->uri->segment(2) == 'galeri' && $this->uri->segment(3) == 'album') ? 'active':'' ?>"><a class="nav-link" href="<?= site_url('admin/galeri/album') ?>">Album</a></li>
+               <li class="<?= ($this->uri->segment(2) == 'galeri' && $this->uri->segment(3) == '') ? 'active':'' ?>"><a class="nav-link" href="<?= site_url('admin/galeri') ?>">Galeri</a></li>
+            </ul>
          </li>
 
          <li class="menu-header">Pengaturan</li>
