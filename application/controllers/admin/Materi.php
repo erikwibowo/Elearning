@@ -6,12 +6,20 @@ class Materi extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Mmateri');
+		$this->load->model('Mkelas');
 		admin();
 	}
 
 	public function index(){
 		$x['title']		= "Materi - Admin ".get_webinfo()->nama_website;
-		$x['data']		= $this->Mmateri->read()->result();
+
+		$id_kelas = $this->input->get('id-kelas');
+		if (empty($id_kelas)) {
+			$x['data']		= $this->Mmateri->read()->result();
+		}else{
+			$x['data']		= $this->Mmateri->read_where(['id_kelas' => $id_kelas])->result();
+		}
+		$x['kls']		= $this->Mkelas->read()->result();
 		$this->load->view('admin/materi/index', $x);
 	}
 
@@ -21,16 +29,16 @@ class Materi extends CI_Controller {
 		}else{
 			notif("Data gagal disimpan", "e");
 		}
-		redirect('admin/materi','refresh');
+		echo "<script>history.back()</script>";
 	}
 
 	public function update(){
-		if ($this->Mmateri->update($this->input->post(), $this->input->post('id_info'))) {
+		if ($this->Mmateri->update($this->input->post(), $this->input->post('id_materi'))) {
 			notif("Data behasil disimpan", "s");
 		}else{
 			notif("Data gagal disimpan", "e");
 		}
-		redirect('admin/materi','refresh');
+		echo "<script>history.back()</script>";
 	}
 
 	public function delete($id){
@@ -39,23 +47,19 @@ class Materi extends CI_Controller {
 		}else{
 			notif("Data gagal dihapus", "e");
 		}
-		redirect('admin/materi','refresh');
+		echo "<script>history.back()</script>";
 	}
 
 	public function data(){
 		$id = $this->input->post('id');
-		$x= $this->Mmateri->read_where(array('id_info' => $id))->row();
+		$x= $this->Mmateri->read_where(array('id_materi' => $id))->row();
 		$data = array(
-			"id_info"				=> $x->id_info,
-		    "nama_website"			=> $x->nama_website,
-		    "nama_singkat_website"	=> $x->nama_singkat_website,
-		    "deskripsi"				=> $x->deskripsi,
-		    "alamat"				=> $x->alamat,
-		    "email"					=> $x->email,
-		    "no_telepon"			=> $x->no_telepon,
-		    "facebook"				=> $x->facebook,
-		    "instagram"				=> $x->instagram,
-		    "twitter"				=> $x->twitter
+			"id_materi"				=> $x->id_materi,
+		    "id_kelas"				=> $x->id_kelas,
+		    "nama_materi"			=> $x->nama_materi,
+		    "deskripsi_materi"		=> $x->deskripsi_materi,
+		    "link_materi"			=> $x->link_materi,
+		    "tipe_materi"			=> $x->tipe_materi
 		);
 		echo json_encode($data);
 	}

@@ -218,3 +218,29 @@
             return $nama_hari.','.$tgl.' '.$bulan.' '.$thn;
         }
     }
+
+    if (!function_exists('ago')){
+        function ago($time)
+        {
+            $time = strtotime($time);
+            $periods = array("detik", "menit", "jam", "hari", "minggu", "bulan", "tahun", "dekade");
+            $lengths = array("60","60","24","7","4.35","12","10");
+
+            $now = time();
+
+           $difference     = $now - $time;
+           $tense         = "lalu";
+
+            for($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
+                $difference /= $lengths[$j];
+            }
+
+            $difference = round($difference);
+
+            if($difference != 1) {
+                $periods[$j].= "";
+            }
+
+            return "$difference $periods[$j] lalu ";
+        }
+    }

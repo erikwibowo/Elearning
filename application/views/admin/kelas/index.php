@@ -45,6 +45,7 @@
                                  <div class="btn-group">
                                     <a style="color: white" data-toggle="tooltip" title="Lihat/Edit Data" class="btn btn-sm btn-info btn-edit" data-id="<?= $x->id_kelas ?>"><i class="fa fa-eye"></i></a>
                                     <a data-toggle="tooltip" title="Hapus Data" href="#" class="btn btn-sm btn-danger" data-confirm="Hapus data|Apakah anda yakin akan menghapus <b><?= x($x->nama_kelas) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/kelas/delete/'.$x->id_kelas) ?>'"><i class="fa fa-trash"></i></a>
+                                    <a data-toggle="tooltip" title="Data Materi" class="btn btn-sm btn-warning" href="<?= site_url('admin/materi?id-kelas='.x($x->id_kelas)) ?>"><i class="fas fa-book"></i></a>
                                  </div>
                               </td>
                            </tr>

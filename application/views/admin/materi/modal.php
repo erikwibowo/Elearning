@@ -1,7 +1,7 @@
 <!-- Modal Tambah-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
-	<div class="modal-dialog modal-md" role="document">
+	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
@@ -10,26 +10,36 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form method="POST" action="<?= site_url('admin/menu/insert') ?>" enctype="multipart/form-data">
+				<form method="POST" action="<?= site_url('admin/materi/insert') ?>" enctype="multipart/form-data">
 					<div class="form-group row">
 						<div class="col-sm-12">
-							<input type="text" name="nama_menu" required class="form-control" placeholder="Nama Menu">
+							<input type="text" name="nama_materi" required class="form-control" placeholder="Nama Materi">
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="input-group mb-2">
-	                        <div class="input-group-prepend">
-	                          <div class="input-group-text"><?= site_url() ?></div>
-	                        </div>
-	                        <input type="text" name="url_menu" required class="form-control" placeholder="URL Menu">
-	                    </div>
+						<div class="col-sm-12">
+							<textarea name="deskripsi_materi" required class="form-control" placeholder="Deskripsi Materi" rows="6"></textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<input type="text" name="link_materi" required class="form-control" placeholder="Link Materi">
+						</div>
 					</div>
 					<div class="form-group">
-                      	<label>Tipe Menu</label>
-                      	<select class="form-control" name="tipe_menu">
-                      		<option value="S">Single</option>
-                      		<option value="P">Parent</option>
-                      		<option value="C">Child</option>
+                      	<label>Tipe Materi</label>
+                      	<select class="form-control" name="tipe_materi">
+                      		<option value="VIDEO">VIDEO</option>
+                      		<option value="PDF">PDF</option>
+                      	</select>
+                    </div>
+					<div class="form-group">
+                      	<label>Kelas</label>
+                      	<select class="form-control" required name="id_kelas">
+                      		<option value="">-- Pilih Kelas --</option>
+                      		<?php foreach ($kls as $k): ?>
+                      		<option value="<?= x($k->id_kelas) ?>" <?= $this->input->get('id-kelas') == x($k->id_kelas) ? "selected":"" ?>><?= x($k->nama_kelas.' - '.$k->nama_guru) ?></option>
+                      		<?php endforeach ?>
                       	</select>
                     </div>
 			</div>
@@ -51,21 +61,17 @@
             $('#loading').modal('show');
             $.ajax({
                 type : "POST",
-                url  : "<?= site_url('admin/menu/data') ?>",
+                url  : "<?= site_url('admin/materi/data') ?>",
                 dataType : "JSON",
                 data : {id:id},
                 success: function(data){
                     $('#loading').modal('hide');
-                    $("#nama_website").val(data.nama_website);
-                    $("#nama_singkat_website").val(data.nama_singkat_website);
-                    $("#deskripsi").val(data.deskripsi);
-                    $("#alamat").val(data.alamat);
-                    $("#email").val(data.email);
-                    $("#no_telepon").val(data.no_telepon);
-                    $("#facebook").val(data.facebook);
-                    $("#twitter").val(data.twitter);
-                    $("#instagram").val(data.instagram);
-                    $("#id_menu").val(data.id_menu);
+                    $("#id_materi").val(data.id_materi);
+                    $("#id_kelas").val(data.id_kelas);
+                    $("#nama_materi").val(data.nama_materi);
+                    $("#deskripsi_materi").val(data.deskripsi_materi);
+                    $("#link_materi").val(data.link_materi);
+                    $("#tipe_materi").val(data.tipe_materi);
                     $('#modal-edit').modal({backdrop: 'static', keyboard: false});
                     $('#modal-edit').modal('show');
                 }
@@ -86,68 +92,39 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form method="POST" action="<?= site_url('admin/menu/update') ?>" enctype="multipart/form-data">
+				<form method="POST" action="<?= site_url('admin/materi/update') ?>" enctype="multipart/form-data">
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Nama Website</label>
-						<div class="col-sm-5">
-							<input type="text" id="nama_website" name="nama_website" required class="form-control" placeholder="Nama Website">
-						</div>
-						<div class="col-sm-5">
-							<input type="text" id="nama_singkat_website" name="nama_singkat_website" required class="form-control" placeholder="Nama Singkat Website">
-							<input type="hidden" name="id_menu" id="id_menu">
+						<div class="col-sm-12">
+							<input type="text" id="nama_materi" name="nama_materi" required class="form-control" placeholder="Nama Materi">
+							<input type="hidden" name="id_materi" id="id_materi">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Deskripsi Webiste</label>
-						<div class="col-sm-10">
-							<textarea id="deskripsi" name="deskripsi" required class="form-control" placeholder="Deskripsi Webiste"></textarea>
+						<div class="col-sm-12">
+							<textarea id="deskripsi_materi" name="deskripsi_materi" required class="form-control" placeholder="Deskripsi Materi" rows="6"></textarea>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Alamat Webiste</label>
-						<div class="col-sm-10">
-							<textarea id="alamat" name="alamat" required class="form-control" placeholder="Alamat Webiste"></textarea>
+						<div class="col-sm-12">
+							<input type="text" id="link_materi" name="link_materi" required class="form-control" placeholder="Link Materi">
 						</div>
 					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Email Website</label>
-						<div class="col-sm-10">
-							<input type="email" id="email" name="email" required class="form-control" placeholder="Email Website">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Telepon Webiste</label>
-						<div class="col-sm-10">
-							<input type="text" id="no_telepon" name="no_telepon" required class="form-control" placeholder="Telepon Webiste">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Sosmed Website</label>
-						<div class="col-sm-4">
-							<div class="input-group mb-2">
-		                        <div class="input-group-prepend">
-		                          <div class="input-group-text"><i class="fab fa-facebook"></i></div>
-		                        </div>
-		                        <input type="text" id="facebook" name="facebook" class="form-control" required placeholder="Facebook">
-		                    </div>
-						</div>
-						<div class="col-sm-3">
-							<div class="input-group mb-2">
-		                        <div class="input-group-prepend">
-		                          <div class="input-group-text"><i class="fab fa-twitter"></i></div>
-		                        </div>
-		                        <input type="text" id="twitter" name="twitter" class="form-control" required placeholder="Twitter">
-		                    </div>
-						</div>
-						<div class="col-sm-3">
-							<div class="input-group mb-2">
-		                        <div class="input-group-prepend">
-		                          <div class="input-group-text"><i class="fab fa-instagram"></i></div>
-		                        </div>
-		                        <input type="text" id="instagram" name="instagram" class="form-control" required placeholder="Instagram">
-		                    </div>
-						</div>
-					</div>
+					<div class="form-group">
+                      	<label>Tipe Materi</label>
+                      	<select class="form-control" name="tipe_materi" id="tipe_materi">
+                      		<option value="VIDEO">VIDEO</option>
+                      		<option value="PDF">PDF</option>
+                      	</select>
+                    </div>
+					<div class="form-group">
+                      	<label>Kelas</label>
+                      	<select class="form-control" required name="id_kelas" id="id_kelas">
+                      		<option value="">-- Pilih Kelas --</option>
+                      		<?php foreach ($kls as $k): ?>
+                      		<option value="<?= x($k->id_kelas) ?>" <?= $this->input->get('id-kelas') == x($k->id_kelas) ? "selected":"" ?>><?= x($k->nama_kelas.' - '.$k->nama_guru) ?></option>
+                      		<?php endforeach ?>
+                      	</select>
+                    </div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">TUTUP</button>

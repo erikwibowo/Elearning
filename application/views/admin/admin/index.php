@@ -50,7 +50,7 @@
                                     <div class="badge badge-success">Aktif</div>
                                  <?php } ?>
                               </td>
-                              <td class="text-center"><?= x($x->login == null ? "Belum pernah login":$x->login) ?></td>
+                              <td class="text-center"><?= x($x->login == null ? "Belum pernah login":ago($x->login)) ?></td>
                               <td>
                                  <div class="btn-group">
                                     <a style="color: white" data-toggle="tooltip" title="Lihat/Edit Data" class="btn btn-sm btn-info btn-edit" data-id="<?= $x->id_admin ?>"><i class="fa fa-eye"></i></a>

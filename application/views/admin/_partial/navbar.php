@@ -201,7 +201,7 @@
             <img alt="image" src="<?= base_url() ?>files/admin/thumb/<?= admin()->thumb_admin ?>" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">Hi, <?= admin()->nama_admin ?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <div class="dropdown-title">Terakhir login <?= admin()->dibuat ?></div>
+              <div class="dropdown-title">login <?= admin()->login == null ? "-":ago(admin()->login) ?></div>
               <!-- <a href="http://localhost/elearning/dist/features_profile" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>

@@ -2,9 +2,21 @@
 <div class="main-content">
    <section class="section">
       <div class="section-header">
-         <h1>Data Menu</h1>
+         <h1>Data Materi</h1> &nbsp;&nbsp;&nbsp;&nbsp;
+            <select style="width: 500px" class="form-control" id="id_kelasx" name="id_kelas" onchange="materi()">
+               <option value="">-- Semua Kelas --</option>
+               <?php foreach ($kls as $k): ?>
+               <option value="<?= x($k->id_kelas) ?>" <?= $this->input->get('id-kelas') == x($k->id_kelas) ? "selected":"" ?>><?= x($k->nama_kelas.' - '.$k->nama_guru) ?></option>
+               <?php endforeach ?>
+            </select>
+            <script type="text/javascript">
+               function materi(){
+                  var id = document.getElementById('id_kelasx').value;
+                  window.location = '<?= site_url('admin/materi?id-kelas=') ?>'+id;
+               }
+            </script>
          <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="#">Menu</a></div>
+            <div class="breadcrumb-item active"><a href="#">Materi</a></div>
          </div>
       </div>
       <div class="row">
@@ -21,10 +33,10 @@
                               <th class="text-center">
                                  #
                               </th>
-                              <th>Nama Menu</th>
-                              <th>URL</th>
+                              <th>Nama Materi</th>
+                              <th>Deskripsi</th>
+                              <th>Link</th>
                               <th>Tipe</th>
-                              <th>Parent ID</th>
                               <th>Aksi</th>
                            </tr>
                         </thead>
@@ -32,14 +44,14 @@
                         <?php $no = 1; foreach ($data as $x) { ?>
                            <tr>
                               <td><?= $no++ ?></td>
-                              <td><?= x($x->nama_menu) ?></td>
-                              <td><?= site_url().x($x->url_menu) ?></td>
-                              <td><?= x($x->tipe_menu) ?></td>
-                              <td><?= x($x->parent) ?></td>
+                              <td><?= x($x->nama_materi) ?></td>
+                              <td><?= strlen(x($x->deskripsi_materi)) < 100 ? x($x->deskripsi_materi):x(substr($x->deskripsi_materi, 0, 100)." ...") ?></td>
+                              <td><?= x($x->link_materi) ?></td>
+                              <td><?= x($x->tipe_materi) ?></td>
                               <td>
                                  <div class="btn-group">
-                                    <a style="color: white" data-toggle="tooltip" title="Lihat/Edit Data" class="btn btn-sm btn-info btn-edit" data-id="<?= $x->id_menu ?>"><i class="fa fa-eye"></i></a>
-                                    <a data-toggle="tooltip" title="Hapus Data" href="#" class="btn btn-sm btn-danger" data-confirm="Hapus data|Apakah anda yakin akan menghapus <b><?= x($x->nama_menu) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/menu/delete/'.$x->id_menu) ?>'"><i class="fa fa-trash"></i></a>
+                                    <a style="color: white" data-toggle="tooltip" title="Lihat/Edit Data" class="btn btn-sm btn-info btn-edit" data-id="<?= $x->id_materi ?>"><i class="fa fa-eye"></i></a>
+                                    <a data-toggle="tooltip" title="Hapus Data" href="#" class="btn btn-sm btn-danger" data-confirm="Hapus data|Apakah anda yakin akan menghapus <b><?= x($x->nama_materi) ?></b>?" data-confirm-yes="window.location = '<?= site_url('admin/materi/delete/'.$x->id_materi) ?>'"><i class="fa fa-trash"></i></a>
                                  </div>
                               </td>
                            </tr>
@@ -54,5 +66,5 @@
    </div>
 </section>
 </div>
-<?php $this->load->view('admin/menu/modal') ?>
+<?php $this->load->view('admin/materi/modal') ?>
 <?php $this->load->view('admin/_partial/bottom'); ?>
