@@ -9,3 +9,15 @@ if ( ! function_exists('get_webinfo')){
 		return $data;
 	}
 }
+
+if ( ! function_exists('site_key')){
+	function site_key(){
+		return "6LdPCbkUAAAAADO73KtxYfMSBK5ffrKt5KVoPXRf";
+	}
+}
+
+if ( ! function_exists('secret_key')){
+	function secret_key(){
+		return "6LdPCbkUAAAAAE30smSQVuEwKeaVa5ZBubGd3HYl";
+	}
+}

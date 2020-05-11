@@ -42,7 +42,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <div class="g-recaptcha" data-sitekey="6LdPCbkUAAAAADO73KtxYfMSBK5ffrKt5KVoPXRf" data-callback="enableBtn"></div>
+                        <div class="g-recaptcha" data-sitekey="<?= site_key() ?>" data-callback="enableBtn"></div>
                       </div>
                       <!-- <div class="form-group">
                         <div class="custom-control custom-checkbox">
